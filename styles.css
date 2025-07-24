@@ -1,0 +1,244 @@
+:root {
+    --primary-color: #000;
+    --secondary-color: #fff;
+    --hover-color: #f6f6f6;
+    --border-color: #ccc;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: 'HeaderFont';
+    src: url('fonts/Satoshi-Bold.otf') format('truetype');
+}
+
+@font-face {
+    font-family: 'BodyFont';
+    src: url('fonts/Satoshi-Regular.otf') format('truetype');
+}
+
+
+
+h1 {
+    font-family: 'BodyFont', Arial, sans-serif;
+    color: var(--primary-color);
+    line-height: 2;
+    font-size: 2.3rem;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+    cursor: url('images/avs-cursor-black.png'), auto;
+    transition: color 0.3s ease;
+}
+
+h2 {
+    font-family: 'BodyFont', Arial, sans-serif;
+    color: var(--primary-color);
+    line-height: 1.8;
+    font-size: 1.8rem;
+    margin-top: 30px;
+    padding: 0;
+    cursor: url('images/avs-cursor-black.png'), auto;
+    transition: color 0.3s ease;
+}
+
+h3 {
+    font-family: 'BodyFont', Arial, sans-serif;
+    color: var(--primary-color);
+    line-height: 1.4;
+    font-size: 1.4rem;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+    cursor: url('images/avs-cursor-black.png'), auto;
+    transition: color 0.3s ease;
+}
+
+p {
+    font-family: 'BodyFont', Arial, sans-serif;
+    color: var(--primary-color);
+    line-height: 1;
+    font-size: 1rem;
+    margin: 0;
+    padding: 0;
+    cursor: url('images/avs-cursor-black.png'), auto;
+    transition: color 0.3s ease;
+}
+
+a {
+    font-family: 'BodyFont', Arial, sans-serif;
+    color: var(--primary-color);
+    font-weight: bold;
+    line-height: 1;
+    font-size: 0.8rem;
+    margin: 0;
+    padding: 0;
+    cursor: url('images/avs-cursor-black.png'), auto;
+    transition: color 0.3s ease;
+}
+
+
+
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 20px;
+    border-bottom: 0px solid var(--border-color);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0; /* Adjust spacing between the image and the text */
+}
+
+.logo a {
+    display: inline-block; /* Restrict the clickable area to the image only */
+    text-decoration: none;
+}
+
+.logo img {
+    height: 20px; /* Adjust image size as needed */
+    margin: 10px; /* Ensure no extra space around the image */
+}
+
+.logo-text {
+    font-size: 2rem;
+    font-family: 'HeaderFont', Arial, sans-serif;
+    text-transform: none;
+    letter-spacing: 0;
+    line-height: 2rem;
+    color: var(--primary-color); /* Ensure text color matches design */
+}
+
+
+
+
+
+
+.hero-container {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    padding: 80px 20px 40px;
+}
+
+.hero {
+    max-width: 200px;
+    height: auto;
+}
+
+.hero-zone {
+  pointer-events: none; /* ✅ Allows mouse to go through */
+  position: absolute;
+  top: 150px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
+  height: 200px;
+  z-index: 9;
+}
+
+
+
+
+
+
+
+.project-description {
+    position: relative;
+    z-index: 5;
+    text-align: center;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 80%;
+    margin: 80px;
+    font-size: 1.6em;
+    line-height: 1.6;
+}
+
+.about {
+    position: relative;
+    z-index: 5;
+    padding: 20px;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+
+
+
+
+.gallery {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80vh;
+    overflow: hidden;
+}
+
+.floating-image {
+  position: absolute;
+   z-index: 2;
+  width: 150px;
+  opacity: 0.5;
+  transition: filter 0.3s, opacity 0.3s;
+  filter: saturate(80%);
+  animation-name: float;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+.floating-image:hover {
+  filter: saturate(100%);
+  opacity: 1;
+  animation-play-state: paused;
+}
+
+@keyframes float {
+  0% { transform: translate(0, 0); }
+  50% { transform: translate(20px, 30px); }
+  100% { transform: translate(-10px, -20px); }
+}
+
+
+section {
+    position: relative;
+    z-index: 5;
+    padding: 30px;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+
+
+footer {
+    padding: 20px 40px;
+    text-align: center;
+    color: var(--primary-color);
+}
+
+footer p {
+    font-size: 0.9rem;
+}
+
+footer a {
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+footer a:focus {
+    outline: 2px dashed var(--border-color);
+}

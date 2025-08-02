@@ -87,24 +87,76 @@ header {
   top: 0;
   background: var(--bg);
   z-index: 10;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+/* ✅ hovering invert colors */
+/* ✅ Header hover effect */
+header:hover {
+  background: var(--fg);
+}
+
+/* ✅ Invert all inside elements */
+header:hover .logo-icon {
+  filter: invert(1);
+}
+
+header:hover .logo-text {
+  color: var(--bg); /* Force white text */
+}
+
+header:hover nav a {
+  color: var(--bg); /* Force white links */
+}
+
+
+
+/* Logo container */
 .logo {
   display: flex;
   align-items: center;
   gap: 5px;
+  text-decoration: none; /* remove link underline */
+  color: inherit; /* inherit text color */
 }
 
+.logo:hover .logo-text {
+  text-decoration: underline; /* underline only on hover */
+}
+
+/* Container for logo link */
+.logo-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none; /* Remove link underline */
+  color: inherit; /* Inherit text color */
+  transition: filter 0.3s ease;
+}
+
+/* Logo icon */
 .logo-icon {
-  width: 80px;
+  width: 60px;
   height: auto;
+  transition: filter 0.3s ease;
 }
 
+/* Logo text */
 .logo-text {
   font-family: var(--font-header);
-  font-size: 2rem;
+  font-size: 2rem;  /* Big H1 */
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: filter 0.3s ease;
 }
 
+/* Hover underline for text only */
+.logo-link:hover .logo-text {
+  text-decoration: underline;
+}
+
+
+/* Navigation */
 nav ul {
   display: flex;
   gap: 20px;
@@ -293,3 +345,8 @@ footer {
   border-top: 3px solid var(--border);
   font-size: 0.9rem;
 }
+
+html {
+  scroll-behavior: smooth;
+}
+

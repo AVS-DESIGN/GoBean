@@ -109,8 +109,6 @@ header:hover nav a {
   color: var(--bg); /* Force white links */
 }
 
-
-
 /* Logo container */
 .logo {
   display: flex;
@@ -183,7 +181,7 @@ nav a {
 
 .typewriter {
   display: inline-block;
-  font-size: 3rem;
+  font-size: 4rem;
   font-family: var(--font-header);
   text-transform: none;
   border-right: 4px solid var(--fg);
@@ -199,14 +197,14 @@ nav a {
 .intro-content p {
   font-size: 1.3rem;
   line-height: 1.6;
-  margin-top: 20px;
+  margin-top: 30px;
 }
 
 /* === STORY BLOCKS === */
 .story-block, .cta {
-  padding: 120px 40px;
+  padding: 120px 30px;
   text-align: center;
-  border-bottom: 3px solid var(--border);
+  border-bottom: 0px solid var(--border);
 }
 
 .story-block img {

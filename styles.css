@@ -219,6 +219,49 @@ nav a {
   margin-bottom: 10px;
 }
 
+/* === ALTERNATING TEAM LAYOUT === */
+.team-member {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 60px;
+  text-align: left;
+}
+
+/* ✅ Alternate layout for even members */
+.team-member:nth-child(even) {
+  flex-direction: row-reverse;
+  text-align: right;
+}
+
+/* ✅ Make text alignment correct when reversed */
+.team-member:nth-child(even) .team-info {
+  text-align: right;
+}
+
+.team-member img {
+  width: 160px;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid var(--border);
+  box-shadow: 6px 6px 0 var(--border);
+}
+
+/* Align social icons with text direction */
+.team-member:nth-child(even) .social-icons {
+  justify-content: flex-end; /* align icons to the right */
+}
+
+.social-icons {
+  display: flex;
+  gap: 15px;
+  margin-top: 8px;
+  justify-content: flex-start; /* default left-aligned */
+}
+
+
 /* === FOOTER === */
 footer {
   text-align: center;

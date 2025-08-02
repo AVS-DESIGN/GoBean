@@ -221,12 +221,12 @@ nav a {
 .intro-content p {
   font-size: 1.3rem;
   line-height: 1.6;
-  margin-top: 30px;
+  margin-top: 15px;
 }
 
 /* === STORY BLOCKS === */
 .story-block, .cta {
-  padding: 120px 30px;
+  padding: 120px 15px;
   text-align: center;
   border-bottom: 0px solid var(--border);
 }
@@ -234,8 +234,8 @@ nav a {
 .story-block img {
   max-width: 600px;
   width: 100%;
-  border: 3px solid var(--border);
-  border-radius: 10%;
+  border: 0px solid var(--border);
+  border-radius: none;
   box-shadow: 0px 0px 0 var(--border);
 }
 
@@ -250,6 +250,27 @@ nav a {
   opacity: 1;
   transform: translateY(0);
 }
+
+.scroll-arrow { /* arrow */
+  display: flex;
+  justify-content: center;
+  margin: 0 0 0 0;
+}
+
+.scroll-arrow span {
+  font-size: 8rem; /* Oversized */
+  font-weight: bold;
+  line-height: 1;
+  cursor: default;
+  animation: bounce 1.2s infinite alternate;
+}
+
+/* Simple bounce animation */
+@keyframes bounce {
+  0%   { transform: translateY(0); }
+  100% { transform: translateY(12px); }
+}
+
 
 
 /* === SOCIAL ICONS === */

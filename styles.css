@@ -282,10 +282,29 @@ nav a {
   text-align: center;
 }
 
-.story-block img {
+/* === STORY IMAGE === */
+.story-img {
   max-width: 600px;
   width: 100%;
+  display: block;
+  margin: 0 auto; /* center */
 }
+
+.story-img-offset {
+  max-width: 600px;
+  width: 100%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  transform: translateY(30px); /* slight downward shift */
+}
+
+@media (max-width: 768px) {
+  .story-img-offset {
+    transform: translateY(15px); /* smaller shift on mobile */
+  }
+}
+
 
 /* === CTA SECTION === */
 .cta {

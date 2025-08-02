@@ -412,7 +412,6 @@ html {
 }
 
 /* === BURGER MENU === */
-/* Burger button hidden on desktop */
 .burger {
   display: none;
   font-size: 2rem;
@@ -421,14 +420,11 @@ html {
   cursor: pointer;
 }
 
-
 /* Show burger only on mobile */
 @media (max-width: 768px) {
   .burger {
     display: block;
   }
-}
-
 
   nav ul {
     display: none;
@@ -457,13 +453,13 @@ html {
   }
 
   nav ul li a:active {
-    color: var(--fg);       /* keep same color */
-    text-decoration: underline; /* optional underline while pressing */
-    background: none;       /* remove default iOS highlight */
+    color: var(--fg);
+    text-decoration: underline;
+    background: none;
   }
-  
 }
 
+/* Brutalist underline only on desktop */
 @media (min-width: 769px) {
   nav a {
     position: relative;
@@ -475,27 +471,24 @@ html {
     left: 0;
     bottom: -3px;
     width: 0%;
-    height: 3px; /* thickness */
-    background: var(--bg);
+    height: 3px;
+    background: var(--bg); /* ✅ white */
     transition: width 0.2s ease;
   }
 
   nav a:hover::after {
     width: 100%;
   }
-}
 
-
-/* ✅ header hover invert only on desktop */
-@media (min-width: 769px) {
   header:hover nav a {
-    color: var(--bg); /* White links only on desktop */
+    color: var(--bg); /* invert links only on desktop */
   }
 
   header:hover .burger {
-    filter: invert(1); /* Burger icon invert only on desktop */
+    filter: invert(1); /* invert burger only on desktop */
   }
 }
+
 
 
 

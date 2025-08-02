@@ -458,8 +458,13 @@ html {
     text-decoration: underline; /* optional underline while pressing */
     background: none;       /* remove default iOS highlight */
   }
-
   
+}
+
+@media (min-width: 769px) {
+  nav a:hover {
+    text-decoration: underline;
+  }
 }
 
 /* ✅ header hover invert only on desktop */

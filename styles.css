@@ -1,12 +1,12 @@
 /* === FONT SETUP === */
 @font-face {
   font-family: 'HeaderFont';
-  src: url('fonts/Satoshi-Bold.otf') format('truetype');
+  src: url('./fonts/Satoshi-Bold.otf') format('truetype');
 }
 
 @font-face {
   font-family: 'BodyFont';
-  src: url('fonts/Satoshi-Regular.otf') format('truetype');
+  src: url('./fonts/Satoshi-Regular.otf') format('truetype');
 }
 
 :root {

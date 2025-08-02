@@ -38,53 +38,47 @@ document.addEventListener("DOMContentLoaded", () => {
     )
     .forEach((el) => observer.observe(el));
 
+
+    
+
   /* ✅ Gallery Slider */
-  const gallery = document.querySelector(".gallery-slider");
-  if (gallery) {
-    const cards = gallery.querySelectorAll(".gallery-card");
-    const prevBtn = gallery.querySelector(".gallery-prev");
-    const nextBtn = gallery.querySelector(".gallery-next");
-    let currentIndex = 0;
+const galleryCards = document.querySelectorAll(".gallery-card");
+const prevBtn = document.querySelector(".gallery-prev");
+const nextBtn = document.querySelector(".gallery-next");
 
-    function updateGallery() {
-      cards.forEach((card, index) => {
-        card.style.display = "none";
-        card.style.transform = "scale(0.8)";
-        card.style.opacity = "0.5";
-      });
+let currentIndex = 0;
 
-      const prevIndex = (currentIndex - 1 + cards.length) % cards.length;
-      const nextIndex = (currentIndex + 1) % cards.length;
+function updateGallery() {
+  galleryCards.forEach((card) => {
+    card.style.display = "none";
+    card.style.opacity = "0";
+    card.style.transform = "scale(0.8)";
+  });
 
-      // Previous card
-      cards[prevIndex].style.display = "block";
-      cards[prevIndex].style.transform = "translateX(-120px) scale(0.9)";
-      cards[prevIndex].style.opacity = "0.7";
+  // ✅ Calculate indices safely
+  let indices = [currentIndex - 1, currentIndex, currentIndex + 1].filter(
+    (i) => i >= 0 && i < galleryCards.length
+  );
 
-      // Active card
-      cards[currentIndex].style.display = "block";
-      cards[currentIndex].style.transform = "translateX(0) scale(1)";
-      cards[currentIndex].style.opacity = "1";
+  indices.forEach((i) => {
+    galleryCards[i].style.display = "block";
+    galleryCards[i].style.opacity = "1";
+    galleryCards[i].style.transform = i === currentIndex ? "scale(1)" : "scale(0.85)";
+  });
+}
 
-      // Next card
-      cards[nextIndex].style.display = "block";
-      cards[nextIndex].style.transform = "translateX(120px) scale(0.9)";
-      cards[nextIndex].style.opacity = "0.7";
-    }
-
-    prevBtn.addEventListener("click", () => {
-      currentIndex = (currentIndex - 1 + cards.length) % cards.length;
-      updateGallery();
-    });
-
-    nextBtn.addEventListener("click", () => {
-      currentIndex = (currentIndex + 1) % cards.length;
-      updateGallery();
-    });
-
-    updateGallery(); // Initialize
-  }
+prevBtn.addEventListener("click", () => {
+  currentIndex = Math.max(currentIndex - 1, 0);
+  updateGallery();
 });
+
+nextBtn.addEventListener("click", () => {
+  currentIndex = Math.min(currentIndex + 1, galleryCards.length - 1);
+  updateGallery();
+});
+
+updateGallery(); // ✅ Initialize
+
 
 /* ✅ Parallax Effect */
 window.addEventListener("scroll", () => {

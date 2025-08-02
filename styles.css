@@ -245,9 +245,9 @@ nav a {
 .story-block img {
   max-width: 600px;
   width: 100%;
-  border: 0px solid var(--border);
+  border: 0 solid var(--border);
   border-radius: none;
-  box-shadow: 0px 0px 0 var(--border);
+  box-shadow: 0 0 0 0 var(--border);
 }
 
 /* === SCROLL ANIMATIONS === */

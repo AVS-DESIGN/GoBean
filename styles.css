@@ -75,6 +75,7 @@ p {
   margin-top: 8px;
 }
 
+
 /* === HEADER === */
 header {
   display: flex;
@@ -89,9 +90,19 @@ header {
 }
 
 .logo {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.logo-icon {
+  width: 80px;
+  height: auto;
+}
+
+.logo-text {
   font-family: var(--font-header);
   font-size: 2rem;
-  text-transform: none;
 }
 
 nav ul {
@@ -107,6 +118,7 @@ nav a {
   color: var(--fg);
   font-size: 1rem;
 }
+
 
 /* === INTRO + TYPEWRITER === */
 .full-screen {

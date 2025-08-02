@@ -307,9 +307,10 @@ nav a {
 @media (max-width: 480px) {
   .intro-content p {
     font-size: 1.5rem;
-    max-width: 950;
+    max-width: 95%;
   }
 }
+
 
 
 /* === STORY BLOCKS === */
@@ -328,22 +329,9 @@ nav a {
   display: block;
 }
 
-/* Default center */
-.story-img {
-  margin: 0 auto;
-}
-
-/* Align right */
-.story-img-right {
-  margin-left: auto;
-  margin-right: 0;
-}
-
-/* Align left */
-.story-img-left {
-  margin-left: 0;
-  margin-right: auto;
-}
+.story-img { margin: 0 auto; }
+.story-img-right { margin-left: auto; }
+.story-img-left { margin-right: auto; }
 
 /* ✅ Make images responsive on small screens */
 @media (max-width: 768px) {
@@ -478,6 +466,7 @@ nav a {
   display: flex;
   gap: 15px;
   margin-top: 8px;
+  justify-content: flex-start;
 }
 
 .social-icons a {
@@ -493,6 +482,10 @@ nav a {
 
 .social-icons a:nth-child(2):hover {
   color: #e1306c;
+}
+
+.team-member:nth-child(even) .social-icons {
+  justify-content: flex-end;
 }
 
 /* === FOOTER === */

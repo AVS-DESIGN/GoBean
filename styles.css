@@ -163,6 +163,7 @@ header:hover .burger {
 }
 
 
+
 /* Navigation */
 nav ul {
   display: flex;
@@ -177,6 +178,87 @@ nav a {
   color: var(--fg);
   font-size: 1rem;
 }
+
+
+
+/* === BURGER MENU === */
+.burger {
+  display: none;
+  font-size: 2rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* Show burger only on mobile */
+@media (max-width: 768px) {
+  .burger {
+    display: block;
+  }
+
+  nav ul {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    right: 0;
+    top: 60px;
+    background: var(--bg);
+    border: 3px solid var(--border);
+    padding: 20px;
+    gap: 10px;
+    z-index: 99;
+  }
+
+  nav ul.show-menu {
+    display: flex;
+  }
+
+  nav ul li a {
+    color: var(--fg);
+  }
+
+  nav ul li a:hover {
+    color: var(--fg);
+    text-decoration: underline;
+  }
+
+  nav ul li a:active {
+    color: var(--fg);
+    text-decoration: underline;
+    background: none;
+  }
+}
+
+/* Brutalist underline only on desktop */
+@media (min-width: 769px) {
+  nav a {
+    position: relative;
+  }
+
+  nav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    width: 0%;
+    height: 3px;
+    background: var(--bg); /* ✅ white */
+    transition: width 0.2s ease;
+  }
+
+  nav a:hover::after {
+    width: 100%;
+  }
+
+  header:hover nav a {
+    color: var(--bg); /* invert links only on desktop */
+  }
+
+  header:hover .burger {
+    filter: invert(1); /* invert burger only on desktop */
+  }
+}
+
 
 
 /* === INTRO + TYPEWRITER === */
@@ -401,6 +483,8 @@ footer {
   font-size: 0.9rem;
 }
 
+
+
 /* === SCROLLING === */
 html {
   scroll-behavior: smooth;
@@ -411,83 +495,6 @@ html {
   will-change: transform;
 }
 
-/* === BURGER MENU === */
-.burger {
-  display: none;
-  font-size: 2rem;
-  background: none;
-  border: none;
-  cursor: pointer;
-}
-
-/* Show burger only on mobile */
-@media (max-width: 768px) {
-  .burger {
-    display: block;
-  }
-
-  nav ul {
-    display: none;
-    flex-direction: column;
-    position: absolute;
-    right: 0;
-    top: 60px;
-    background: var(--bg);
-    border: 3px solid var(--border);
-    padding: 20px;
-    gap: 10px;
-    z-index: 99;
-  }
-
-  nav ul.show-menu {
-    display: flex;
-  }
-
-  nav ul li a {
-    color: var(--fg);
-  }
-
-  nav ul li a:hover {
-    color: var(--fg);
-    text-decoration: underline;
-  }
-
-  nav ul li a:active {
-    color: var(--fg);
-    text-decoration: underline;
-    background: none;
-  }
-}
-
-/* Brutalist underline only on desktop */
-@media (min-width: 769px) {
-  nav a {
-    position: relative;
-  }
-
-  nav a::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -3px;
-    width: 0%;
-    height: 3px;
-    background: var(--bg); /* ✅ white */
-    transition: width 0.2s ease;
-  }
-
-  nav a:hover::after {
-    width: 100%;
-  }
-
-  header:hover nav a {
-    color: var(--bg); /* invert links only on desktop */
-  }
-
-  header:hover .burger {
-    filter: invert(1); /* invert burger only on desktop */
-  }
-}
 
 
 

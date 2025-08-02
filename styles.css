@@ -502,7 +502,7 @@ html {
 /* === TYPEWRITER RESPONSIVE === */
 @media (max-width: 768px) {
   .typewriter {
-    font-size: 2.5rem; /* smaller on tablets */
+    font-size: 3rem; /* smaller on tablets */
   }
 }
 

@@ -189,7 +189,31 @@ nav a {
   overflow: hidden;
 }
 
+.intro {
+  background-image: url("./gallery/GoBean-20.jpeg");
+  background-size: cover;      /* fill screen */
+  background-position: center; /* focus center */
+  background-repeat: no-repeat;
+  position: relative;
+  color: white; /* Text White */
+}
+
+/* Dark overlay*/
+.intro::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.1); /* semi-transparent black */
+  z-index: 1;
+}
+
+/* content above overlay */
 .intro-content {
+  position: relative;
+  z-index: 2;
   text-align: center;
   max-width: 700px;
 }
@@ -209,9 +233,9 @@ nav a {
 
 .story-block img {
   max-width: 600px;
-  width: 90%;
+  width: 100%;
   border: 3px solid var(--border);
-  box-shadow: 10px 10px 0 var(--border);
+  box-shadow: 0px 0px 0 var(--border);
 }
 
 /* === SCROLL ANIMATIONS === */
@@ -243,7 +267,7 @@ nav a {
 
 .social-icons a:hover {
   transform: scale(1.3) rotate(-5deg);
-  color: #0077b5; /* LinkedIn blue as default hover */
+  color: #0077b5; /* LinkedIn blue */
 }
 
 .social-icons a:nth-child(2):hover {
@@ -277,7 +301,7 @@ nav a {
   width: 160px;
   height: 160px;
   object-fit: cover;
-  border-radius: 50%; /* Circular mask */
+  border-radius: 50%; /* Circle mask */
   border: 3px solid var(--border);
   box-shadow: 6px 6px 0 var(--border);
 }
@@ -303,13 +327,13 @@ nav a {
   text-align: left;
 }
 
-/* ✅ Alternate layout for even members */
+/* ✅ Alternate layout */
 .team-member:nth-child(even) {
   flex-direction: row-reverse;
   text-align: right;
 }
 
-/* ✅ Make text alignment correct when reversed */
+/* ✅ Text alignment correct when reversed */
 .team-member:nth-child(even) .team-info {
   text-align: right;
 }

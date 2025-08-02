@@ -421,11 +421,14 @@ html {
   cursor: pointer;
 }
 
-/* Responsive behavior */
+
+/* Show burger only on mobile */
 @media (max-width: 768px) {
   .burger {
-    display: block; /* ✅ show burger button on small screens */
+    display: block;
   }
+}
+
 
   nav ul {
     display: none;
@@ -493,6 +496,7 @@ html {
     filter: invert(1); /* Burger icon invert only on desktop */
   }
 }
+
 
 
 /* === TYPEWRITER RESPONSIVE === */

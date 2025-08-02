@@ -283,27 +283,40 @@ nav a {
 }
 
 /* === STORY IMAGE === */
+.story-img,
+.story-img-left,
+.story-img-right {
+  max-width: 600px;
+  width: 100%;
+  display: block;
+}
+
+/* Default center */
 .story-img {
-  max-width: 600px;
-  width: 100%;
-  display: block;
-  margin: 0 auto; /* center */
+  margin: 0 auto;
 }
 
-.story-img-offset {
-  max-width: 600px;
-  width: 100%;
-  display: block;
+/* Align right */
+.story-img-right {
   margin-left: auto;
-  margin-right: auto;
-  transform: translateY(30px); /* slight downward shift */
+  margin-right: 0;
 }
 
+/* Align left */
+.story-img-left {
+  margin-left: 0;
+  margin-right: auto;
+}
+
+/* ✅ Make images responsive on small screens */
 @media (max-width: 768px) {
-  .story-img-offset {
-    transform: translateY(15px); /* smaller shift on mobile */
+  .story-img,
+  .story-img-left,
+  .story-img-right {
+    width: 90%; /* reduce size for smaller screens */
   }
 }
+
 
 
 /* === CTA SECTION === */

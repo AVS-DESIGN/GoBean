@@ -37,8 +37,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // ✅ Observe all sections that should fade in
   document
-    .querySelectorAll(".story-block, .cta, .team-section")
-    .forEach((el) => observer.observe(el));
+  .querySelectorAll(".story-block, .cta, .team-section, .award-section, .gallery-section")
+  .forEach((el) => observer.observe(el));
 });
 
 

@@ -1,26 +1,27 @@
 document.addEventListener("DOMContentLoaded", () => {
-  /* ✅ Typewriter Effect */
-  const typewriterEl = document.querySelector(".typewriter");
-  const textContent = typewriterEl.getAttribute("data-text") || typewriterEl.textContent.trim();
+  /* ✅ Animate ALL typewriters */
+  document.querySelectorAll(".typewriter").forEach((el) => {
+    const textContent = el.getAttribute("data-text") || el.textContent.trim();
+    el.textContent = "";
+    el.style.width = "0ch";
 
-  typewriterEl.textContent = ""; // clear initially
-  typewriterEl.style.width = "0ch"; // start with 0 width
+    let i = 0;
+    function type() {
+      if (i <= textContent.length) {
+        el.textContent = textContent.substring(0, i);
+        el.style.width = i + "ch";
+        i++;
+        setTimeout(type, 120);
+      } else {
+        el.style.width = "auto"; // ✅ allow wrapping after typing
+      }
+    }
 
-  let i = 0;
-  function type() {
-  if (i <= textContent.length) {
-    typewriterEl.textContent = textContent.substring(0, i);
-    typewriterEl.style.width = i + "ch"; // expand width while typing
-    i++;
-    setTimeout(type, 120); // typing speed
-  } else {
-    // ✅ Reset width so text can wrap on smaller screens
-    typewriterEl.style.width = "auto";
-  }
-}
+    type();
+  });
 
 
-  type();
+
 
   /* ✅ Scroll-triggered animations for all sections */
   const observer = new IntersectionObserver(

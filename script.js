@@ -8,13 +8,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
   let i = 0;
   function type() {
-    if (i <= textContent.length) {
-      typewriterEl.textContent = textContent.substring(0, i);
-      typewriterEl.style.width = i + "ch"; // expand width
-      i++;
-      setTimeout(type, 120); // typing speed
-    }
+  if (i <= textContent.length) {
+    typewriterEl.textContent = textContent.substring(0, i);
+    typewriterEl.style.width = i + "ch"; // expand width while typing
+    i++;
+    setTimeout(type, 120); // typing speed
+  } else {
+    // ✅ Reset width so text can wrap on smaller screens
+    typewriterEl.style.width = "auto";
   }
+}
+
 
   type();
 

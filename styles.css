@@ -57,7 +57,7 @@ h3 {
 
 p {
   font-family: var(--font-body);
-  font-size: 2rem;
+  font-size: 1.8rem;
   line-height: 1.6;
   margin-bottom: 15px;
 }
@@ -306,7 +306,7 @@ nav a {
 
 @media (max-width: 480px) {
   .intro-content p {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     max-width: 95%;
   }
 }

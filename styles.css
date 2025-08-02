@@ -327,7 +327,7 @@ nav a {
 .story-block img {
   max-width: 600px;
   width: 100%;
-  border: 0 solid var(--border);
+  border: none;
   border-radius: none;
   box-shadow: 0 0 0 0 var(--border);
 }

@@ -479,76 +479,56 @@ nav a {
 
 
 /* === GALLERY === */
-.gallery-section {
-  padding: 100px 20px;
-  text-align: center;
-  border-bottom: 3px solid var(--border);
-}
-
 .gallery-slider {
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 20px;
   overflow: hidden;
-  height: 500px;
+  margin-top: 40px;
 }
 
 .gallery-card {
-  position: absolute;
-  width: 60%;
-  max-width: 600px;
-  transition: transform 0.5s ease, opacity 0.5s ease;
-  opacity: 0;
-  transform: scale(0.8) translateX(100%);
-  z-index: 0;
+  display: none;
+  transition: transform 0.4s ease, opacity 0.4s ease;
 }
 
 .gallery-card img {
-  width: 100%;
-  height: auto;
+  width: 500px;
+  max-width: 80vw;
   border: 3px solid var(--border);
   box-shadow: 6px 6px 0 var(--border);
 }
 
-.gallery-card.active {
-  opacity: 1;
-  transform: scale(1) translateX(0);
-  z-index: 2;
-}
-
-.gallery-card.prev {
-  opacity: 0.7;
-  transform: scale(0.9) translateX(-120%);
-  z-index: 1;
-}
-
-.gallery-card.next {
-  opacity: 0.7;
-  transform: scale(0.9) translateX(120%);
-  z-index: 1;
-}
-
-/* Controls */
-.gallery-controls {
-  margin-top: 20px;
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-}
-
-.gallery-controls button {
-  font-size: 2rem;
-  background: var(--bg);
-  border: 3px solid var(--border);
-  padding: 10px 20px;
+.gallery-prev,
+.gallery-next {
+  background: none;
+  border: none;
+  font-size: 4rem; /* Big brutalist arrows */
   cursor: pointer;
   transition: transform 0.2s ease;
+  color: var(--fg);
+  z-index: 10;
 }
 
-.gallery-controls button:hover {
+.gallery-prev:hover,
+.gallery-next:hover {
   transform: scale(1.2);
+  text-decoration: underline;
 }
+
+.gallery-prev {
+  position: absolute;
+  left: 5%;
+}
+
+.gallery-next {
+  position: absolute;
+  right: 5%;
+}
+
+
 
 
 

@@ -35,3 +35,34 @@ document.addEventListener("DOMContentLoaded", () => {
     .querySelectorAll(".story-block, .cta, .team-section")
     .forEach((el) => observer.observe(el));
 });
+
+
+/* ✅ Parallax Effect */
+window.addEventListener("scroll", () => {
+  document.querySelectorAll(".parallax").forEach((img) => {
+    const speed = 0.5; // increase speed for more visible effect
+    const rect = img.getBoundingClientRect();
+    const windowHeight = window.innerHeight;
+
+    // Only move the image if it's visible in the viewport
+    if (rect.top < windowHeight && rect.bottom > 0) {
+      // How far the image is inside the viewport (0 at top, 1 at bottom)
+      const scrollProgress = 1 - rect.top / windowHeight;
+
+      // Apply a transform relative to its position
+      const yPos = scrollProgress * 100 * speed; // adjust 50 for stronger effect
+      img.style.transform = `translateY(${yPos}px)`;
+    }
+  });
+});
+
+
+/* ✅ Burger Menu Toggle */
+const burger = document.querySelector(".burger");
+const navMenu = document.querySelector("nav ul");
+
+burger.addEventListener("click", () => {
+  navMenu.classList.toggle("show-menu");
+});
+
+

@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  /* ✅ Typewriter Effect for all elements with .typewriter */
+  /* ✅ Animate ALL typewriters */
   document.querySelectorAll(".typewriter").forEach((el) => {
     const textContent = el.getAttribute("data-text") || el.textContent.trim();
     el.textContent = "";
@@ -12,12 +12,15 @@ document.addEventListener("DOMContentLoaded", () => {
         el.style.width = i + "ch";
         i++;
         setTimeout(type, 120);
+      } else {
+        el.style.width = "auto"; // ✅ allow wrapping after typing
       }
     }
+
     type();
   });
 
-  /* ✅ Scroll-triggered animations */
+  /* ✅ Scroll-triggered animations for all sections */
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
@@ -30,58 +33,78 @@ document.addEventListener("DOMContentLoaded", () => {
   );
 
   document
-    .querySelectorAll(".story-block, .cta, .team-section, .gallery-section, .award-section")
+    .querySelectorAll(
+      ".story-block, .cta, .team-section, .award-section, .gallery-section"
+    )
     .forEach((el) => observer.observe(el));
 
-  /* ✅ Parallax Effect */
-  window.addEventListener("scroll", () => {
-    document.querySelectorAll(".parallax").forEach((img) => {
-      const speed = 0.2;
-      const yPos = window.scrollY * speed;
-      img.style.transform = `translateY(${yPos}px)`;
-    });
-  });
+  /* ✅ Gallery Slider */
+  const gallery = document.querySelector(".gallery-slider");
+  if (gallery) {
+    const cards = gallery.querySelectorAll(".gallery-card");
+    const prevBtn = gallery.querySelector(".gallery-prev");
+    const nextBtn = gallery.querySelector(".gallery-next");
+    let currentIndex = 0;
 
-  /* ✅ Gallery Slider Logic */
-  const cards = document.querySelectorAll(".gallery-card");
-  const prevBtn = document.querySelector(".gallery-prev");
-  const nextBtn = document.querySelector(".gallery-next");
-  let current = 0;
+    function updateGallery() {
+      cards.forEach((card, index) => {
+        card.style.display = "none";
+        card.style.transform = "scale(0.8)";
+        card.style.opacity = "0.5";
+      });
 
-  function updateCards() {
-    cards.forEach((card, index) => {
-      card.classList.remove("active", "prev", "next");
-      if (index === current) {
-        card.classList.add("active");
-      } else if (index === (current - 1 + cards.length) % cards.length) {
-        card.classList.add("prev");
-      } else if (index === (current + 1) % cards.length) {
-        card.classList.add("next");
-      }
-    });
-  }
+      const prevIndex = (currentIndex - 1 + cards.length) % cards.length;
+      const nextIndex = (currentIndex + 1) % cards.length;
 
-  if (prevBtn && nextBtn) {
+      // Previous card
+      cards[prevIndex].style.display = "block";
+      cards[prevIndex].style.transform = "translateX(-120px) scale(0.9)";
+      cards[prevIndex].style.opacity = "0.7";
+
+      // Active card
+      cards[currentIndex].style.display = "block";
+      cards[currentIndex].style.transform = "translateX(0) scale(1)";
+      cards[currentIndex].style.opacity = "1";
+
+      // Next card
+      cards[nextIndex].style.display = "block";
+      cards[nextIndex].style.transform = "translateX(120px) scale(0.9)";
+      cards[nextIndex].style.opacity = "0.7";
+    }
+
     prevBtn.addEventListener("click", () => {
-      current = (current - 1 + cards.length) % cards.length;
-      updateCards();
+      currentIndex = (currentIndex - 1 + cards.length) % cards.length;
+      updateGallery();
     });
 
     nextBtn.addEventListener("click", () => {
-      current = (current + 1) % cards.length;
-      updateCards();
+      currentIndex = (currentIndex + 1) % cards.length;
+      updateGallery();
     });
+
+    updateGallery(); // Initialize
   }
+});
 
-  updateCards(); // Initialize slider
+/* ✅ Parallax Effect */
+window.addEventListener("scroll", () => {
+  document.querySelectorAll(".parallax").forEach((img) => {
+    const speed = 0.5;
+    const rect = img.getBoundingClientRect();
+    const windowHeight = window.innerHeight;
 
-  /* ✅ Burger Menu Logic */
-  const burger = document.querySelector(".burger");
-  const navMenu = document.querySelector("nav ul");
+    if (rect.top < windowHeight && rect.bottom > 0) {
+      const scrollProgress = 1 - rect.top / windowHeight;
+      const yPos = scrollProgress * 100 * speed;
+      img.style.transform = `translateY(${yPos}px)`;
+    }
+  });
+});
 
-  if (burger && navMenu) {
-    burger.addEventListener("click", () => {
-      navMenu.classList.toggle("show-menu");
-    });
-  }
+/* ✅ Burger Menu Toggle */
+const burger = document.querySelector(".burger");
+const navMenu = document.querySelector("nav ul");
+
+burger.addEventListener("click", () => {
+  navMenu.classList.toggle("show-menu");
 });

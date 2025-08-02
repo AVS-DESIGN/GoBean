@@ -427,8 +427,8 @@ nav a {
 /* === AWARD SECTION === */
 .award-section {
   padding: 120px 40px;
-  border-bottom: 3px solid var(--border);
-  max-width: 1000px;
+  border-bottom: 4px solid var(--border);
+  max-width: 800px;
   margin: 0 auto;
 }
 

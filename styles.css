@@ -36,7 +36,6 @@ h1 {
   font-size: 4rem;
   font-weight: bold;
   line-height: 1.1;
-  text-transform: none;
   margin-bottom: 20px;
 }
 
@@ -45,7 +44,6 @@ h2 {
   font-size: 3rem;
   font-weight: bold;
   line-height: 1.2;
-  text-transform: none;
   margin-bottom: 20px;
 }
 
@@ -54,7 +52,6 @@ h3 {
   font-size: 2rem;
   font-weight: bold;
   line-height: 1.3;
-  text-transform: none;
   margin-bottom: 15px;
 }
 
@@ -62,7 +59,6 @@ p {
   font-family: var(--font-body);
   font-size: 1.2rem;
   line-height: 1.6;
-  text-transform: none;
   margin-bottom: 15px;
 }
 
@@ -74,7 +70,6 @@ p {
   text-transform: uppercase;
   margin-top: 8px;
 }
-
 
 /* === HEADER === */
 header {
@@ -90,81 +85,69 @@ header {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* ✅ Header hover invert */
 header:hover {
   background: var(--fg);
 }
 
-/* ✅ Invert all inside elements */
 header:hover .logo-icon {
   filter: invert(1);
 }
 
 header:hover .logo-text {
-  color: var(--bg); /* Force white text */
+  color: var(--bg);
 }
-
 
 header:hover .burger {
   filter: invert(1);
 }
 
-
 @media (min-width: 769px) {
   header:hover nav a {
-    color: var(--bg); /* ✅ Apply invert only on desktop */
+    color: var(--bg);
   }
 }
 
-
-
-/* Logo container */
+/* === LOGO === */
 .logo {
   display: flex;
   align-items: center;
   gap: 5px;
-  text-decoration: none; /* remove link underline */
-  color: inherit; /* inherit text color */
+  text-decoration: none;
+  color: inherit;
 }
 
 .logo:hover .logo-text {
-  text-decoration: underline; /* underline only on hover */
+  text-decoration: underline;
 }
 
-/* Container for logo link */
 .logo-link {
   display: flex;
   align-items: center;
   gap: 8px;
-  text-decoration: none; /* Remove link underline */
-  color: inherit; /* Inherit text color */
+  text-decoration: none;
+  color: inherit;
   transition: filter 0.3s ease;
 }
 
-/* Logo icon */
 .logo-icon {
   width: 60px;
   height: auto;
   transition: filter 0.3s ease;
 }
 
-/* Logo text */
 .logo-text {
   font-family: var(--font-header);
-  font-size: 2rem;  /* Big H1 */
+  font-size: 2rem;
   font-weight: bold;
   text-transform: uppercase;
   transition: filter 0.3s ease;
 }
 
-/* Hover underline for text only */
 .logo-link:hover .logo-text {
   text-decoration: underline;
 }
 
-
-
-/* Navigation */
+/* === NAVIGATION === */
 nav ul {
   display: flex;
   gap: 20px;
@@ -179,8 +162,6 @@ nav a {
   font-size: 1rem;
 }
 
-
-
 /* === BURGER MENU === */
 .burger {
   display: none;
@@ -190,7 +171,6 @@ nav a {
   cursor: pointer;
 }
 
-/* Show burger only on mobile */
 @media (max-width: 768px) {
   .burger {
     display: block;
@@ -218,18 +198,11 @@ nav a {
   }
 
   nav ul li a:hover {
-    color: var(--fg);
     text-decoration: underline;
-  }
-
-  nav ul li a:active {
-    color: var(--fg);
-    text-decoration: underline;
-    background: none;
   }
 }
 
-/* Brutalist underline only on desktop */
+/* === BRUTALIST UNDERLINE === */
 @media (min-width: 769px) {
   nav a {
     position: relative;
@@ -242,7 +215,7 @@ nav a {
     bottom: -3px;
     width: 0%;
     height: 3px;
-    background: var(--bg); /* ✅ white */
+    background: var(--bg);
     transition: width 0.2s ease;
   }
 
@@ -250,16 +223,10 @@ nav a {
     width: 100%;
   }
 
-  header:hover nav a {
-    color: var(--bg); /* invert links only on desktop */
-  }
-
-  header:hover .burger {
-    filter: invert(1); /* invert burger only on desktop */
+  header:hover nav a::after {
+    background: var(--bg);
   }
 }
-
-
 
 /* === INTRO + TYPEWRITER === */
 .full-screen {
@@ -274,24 +241,22 @@ nav a {
   display: block;
   font-size: 4rem;
   font-family: var(--font-header);
-  text-transform: none;
   border-right: 4px solid var(--fg);
   overflow: hidden;
-  white-space: normal; /* ✅ allows line breaks */
-  word-break: break-word; /* ✅ breaks long words if needed */
+  white-space: normal;
+  word-break: break-word;
   text-align: center;
 }
 
 .intro {
   background-image: url("./gallery/GoBean-15.jpeg");
-  background-size: cover;      /* fill screen */
-  background-position: center; /* focus center */
+  background-size: cover;
+  background-position: center;
   background-repeat: no-repeat;
   position: relative;
-  color: white; /* Text White */
+  color: white;
 }
 
-/* Dark overlay*/
 .intro::before {
   content: "";
   position: absolute;
@@ -299,11 +264,10 @@ nav a {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.1); /* semi-transparent black */
+  background: rgba(0, 0, 0, 0.1);
   z-index: 1;
 }
 
-/* content above overlay */
 .intro-content {
   position: relative;
   z-index: 2;
@@ -311,25 +275,61 @@ nav a {
   max-width: 700px;
 }
 
-.intro-content p {
-  font-size: 1.3rem;
-  line-height: 1.6;
-  margin-top: 15px;
-}
-
 /* === STORY BLOCKS === */
-.story-block, .cta {
+.story-block,
+.cta {
   padding: 120px 15px;
   text-align: center;
-  border-bottom: 0 solid var(--border);
 }
 
 .story-block img {
   max-width: 600px;
   width: 100%;
-  border: none;
-  border-radius: none;
-  box-shadow: 0 0 0 0 var(--border);
+}
+
+/* === CTA SECTION === */
+.cta {
+  background-image: url("./gallery/GoBean-20.jpeg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  text-align: center;
+  padding: 120px 20px;
+  margin-top: 15px;
+}
+
+.cta::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.15);
+  z-index: 1;
+}
+
+.cta h2 {
+  position: relative;
+  z-index: 2;
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .cta {
+    padding: 60px 20px;
+  }
+
+  .cta h2 {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .cta h2 {
+    font-size: 2rem;
+  }
 }
 
 /* === SCROLL ANIMATIONS === */
@@ -344,51 +344,26 @@ nav a {
   transform: translateY(0);
 }
 
-.scroll-arrow { /* arrow */
+.scroll-arrow {
   display: flex;
   justify-content: center;
-  margin: 0 0 0 0;
 }
 
 .scroll-arrow span {
-  font-size: 8rem; /* Oversized */
+  font-size: 8rem;
   font-weight: bold;
   line-height: 1;
-  cursor: default;
   animation: bounce 1.2s infinite alternate;
 }
 
-/* Simple bounce animation */
 @keyframes bounce {
-  0%   { transform: translateY(0); }
-  100% { transform: translateY(12px); }
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(12px);
+  }
 }
-
-
-
-/* === SOCIAL ICONS === */
-
-.social-icons {
-  display: flex;
-  gap: 15px;
-  margin-top: 8px;
-}
-
-.social-icons a {
-  font-size: 1.8rem;
-  color: var(--fg);
-  transition: transform 0.2s ease, color 0.2s ease;
-}
-
-.social-icons a:hover {
-  transform: scale(1.3) rotate(-5deg);
-  color: #0077b5; /* LinkedIn blue */
-}
-
-.social-icons a:nth-child(2):hover {
-  color: #e1306c; /* Instagram pink */
-}
-
 
 /* === TEAM SECTION === */
 .team-section {
@@ -409,46 +384,13 @@ nav a {
   justify-content: center;
   gap: 30px;
   margin-bottom: 60px;
-  text-align: left;
 }
 
-.team-member img {
-  width: 160px;
-  height: 160px;
-  object-fit: cover;
-  border-radius: 50%; /* Circle mask */
-  border: 3px solid var(--border);
-  box-shadow: 6px 6px 0 var(--border);
-}
-
-.team-info h3 {
-  font-family: var(--font-header);
-  font-size: 1.8rem;
-  margin-bottom: 8px;
-}
-
-.team-info p {
-  font-size: 1.1rem;
-  margin-bottom: 10px;
-}
-
-/* === ALTERNATING TEAM LAYOUT === */
-.team-member {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 30px;
-  margin-bottom: 60px;
-  text-align: left;
-}
-
-/* ✅ Alternate layout */
 .team-member:nth-child(even) {
   flex-direction: row-reverse;
   text-align: right;
 }
 
-/* ✅ Text alignment correct when reversed */
 .team-member:nth-child(even) .team-info {
   text-align: right;
 }
@@ -462,54 +404,27 @@ nav a {
   box-shadow: 6px 6px 0 var(--border);
 }
 
-/* Align social icons with text direction */
-.team-member:nth-child(even) .social-icons {
-  justify-content: flex-end; /* align icons to the right */
-}
-
+/* === SOCIAL ICONS === */
 .social-icons {
   display: flex;
   gap: 15px;
   margin-top: 8px;
-  justify-content: flex-start; /* default left-aligned */
 }
 
-
-/* === TAKE IT. USE IT. REDUCE IT. === */
-.cta {
-  background-image: url("./gallery/GoBean-20.jpeg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  position: relative;
-  text-align: center;
-  padding: 120px 20px;
-  margin-top: 15px;
+.social-icons a {
+  font-size: 1.8rem;
+  color: var(--fg);
+  transition: transform 0.2s ease, color 0.2s ease;
 }
 
-.cta::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.15); /* dark overlay */
-  z-index: 1;
+.social-icons a:hover {
+  transform: scale(1.3) rotate(-5deg);
+  color: #0077b5;
 }
 
-.cta h2 {
-  position: relative;
-  z-index: 2;
-  color: white;
+.social-icons a:nth-child(2):hover {
+  color: #e1306c;
 }
-
-@media (max-width: 768px) {
-  .cta {
-    padding: 60px 20px;
-  }
-}
-
 
 /* === FOOTER === */
 footer {
@@ -518,8 +433,6 @@ footer {
   border-top: 3px solid var(--border);
   font-size: 0.9rem;
 }
-
-
 
 /* === SCROLLING === */
 html {
@@ -531,19 +444,15 @@ html {
   will-change: transform;
 }
 
-
-
-
-
-/* === TYPEWRITER RESPONSIVE === */
+/* === RESPONSIVE TYPEWRITER === */
 @media (max-width: 768px) {
   .typewriter {
-    font-size: 3rem; /* smaller on tablets */
+    font-size: 3rem;
   }
 }
 
 @media (max-width: 480px) {
   .typewriter {
-    font-size: 2rem; /* even smaller on phones */
+    font-size: 2rem;
   }
 }

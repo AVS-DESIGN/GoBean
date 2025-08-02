@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  /* ✅ Animate ALL typewriters */
+  /* ✅ Typewriter Effect for all elements with .typewriter */
   document.querySelectorAll(".typewriter").forEach((el) => {
     const textContent = el.getAttribute("data-text") || el.textContent.trim();
     el.textContent = "";
@@ -12,18 +12,12 @@ document.addEventListener("DOMContentLoaded", () => {
         el.style.width = i + "ch";
         i++;
         setTimeout(type, 120);
-      } else {
-        el.style.width = "auto"; // ✅ allow wrapping after typing
       }
     }
-
     type();
   });
 
-
-
-
-  /* ✅ Scroll-triggered animations for all sections */
+  /* ✅ Scroll-triggered animations */
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
@@ -35,39 +29,59 @@ document.addEventListener("DOMContentLoaded", () => {
     { threshold: 0.3 }
   );
 
-  // ✅ Observe all sections that should fade in
   document
-  .querySelectorAll(".story-block, .cta, .team-section, .award-section, .gallery-section")
-  .forEach((el) => observer.observe(el));
-});
+    .querySelectorAll(".story-block, .cta, .team-section, .gallery-section, .award-section")
+    .forEach((el) => observer.observe(el));
 
-
-/* ✅ Parallax Effect */
-window.addEventListener("scroll", () => {
-  document.querySelectorAll(".parallax").forEach((img) => {
-    const speed = 0.5; // increase speed for more visible effect
-    const rect = img.getBoundingClientRect();
-    const windowHeight = window.innerHeight;
-
-    // Only move the image if it's visible in the viewport
-    if (rect.top < windowHeight && rect.bottom > 0) {
-      // How far the image is inside the viewport (0 at top, 1 at bottom)
-      const scrollProgress = 1 - rect.top / windowHeight;
-
-      // Apply a transform relative to its position
-      const yPos = scrollProgress * 100 * speed; // adjust 50 for stronger effect
+  /* ✅ Parallax Effect */
+  window.addEventListener("scroll", () => {
+    document.querySelectorAll(".parallax").forEach((img) => {
+      const speed = 0.2;
+      const yPos = window.scrollY * speed;
       img.style.transform = `translateY(${yPos}px)`;
-    }
+    });
   });
+
+  /* ✅ Gallery Slider Logic */
+  const cards = document.querySelectorAll(".gallery-card");
+  const prevBtn = document.querySelector(".gallery-prev");
+  const nextBtn = document.querySelector(".gallery-next");
+  let current = 0;
+
+  function updateCards() {
+    cards.forEach((card, index) => {
+      card.classList.remove("active", "prev", "next");
+      if (index === current) {
+        card.classList.add("active");
+      } else if (index === (current - 1 + cards.length) % cards.length) {
+        card.classList.add("prev");
+      } else if (index === (current + 1) % cards.length) {
+        card.classList.add("next");
+      }
+    });
+  }
+
+  if (prevBtn && nextBtn) {
+    prevBtn.addEventListener("click", () => {
+      current = (current - 1 + cards.length) % cards.length;
+      updateCards();
+    });
+
+    nextBtn.addEventListener("click", () => {
+      current = (current + 1) % cards.length;
+      updateCards();
+    });
+  }
+
+  updateCards(); // Initialize slider
+
+  /* ✅ Burger Menu Logic */
+  const burger = document.querySelector(".burger");
+  const navMenu = document.querySelector("nav ul");
+
+  if (burger && navMenu) {
+    burger.addEventListener("click", () => {
+      navMenu.classList.toggle("show-menu");
+    });
+  }
 });
-
-
-/* ✅ Burger Menu Toggle */
-const burger = document.querySelector(".burger");
-const navMenu = document.querySelector("nav ul");
-
-burger.addEventListener("click", () => {
-  navMenu.classList.toggle("show-menu");
-});
-
-

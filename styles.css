@@ -493,7 +493,6 @@ nav a {
 .award-section {
   padding: 120px 40px;
   border-top: 4px solid var(--border);
-  border-bottom: 4px solid var(--border);
   max-width: 800px;
   margin: 0 auto;
 }

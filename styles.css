@@ -338,12 +338,11 @@ nav a {
 }
 
 
-
 /* === STORY IMAGE === */
 .story-img,
 .story-img-left,
 .story-img-right {
-  max-width: 700px;
+  max-width: 600px;
   width: 100%;
   display: block;
 }
@@ -352,14 +351,15 @@ nav a {
 .story-img-right { margin-left: auto; }
 .story-img-left { margin-right: auto; }
 
-/* ✅ Make images responsive on small screens */
 @media (max-width: 768px) {
   .story-img,
   .story-img-left,
   .story-img-right {
-    width: 90%; /* reduce size for smaller screens */
+    width: 90%; 
   }
 }
+
+
 
 
 
@@ -408,6 +408,10 @@ nav a {
   }
 }
 
+
+
+
+
 /* === SCROLL ANIMATIONS === */
 .hidden {
   opacity: 0;
@@ -440,7 +444,6 @@ nav a {
     transform: translateY(12px);
   }
 }
-
 
 
 

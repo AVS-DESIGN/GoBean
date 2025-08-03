@@ -13,14 +13,13 @@ document.addEventListener("DOMContentLoaded", () => {
         i++;
         setTimeout(type, 120);
       } else {
-        el.style.width = "auto"; // ✅ allow wrapping after typing
+        el.style.width = "auto";
       }
     }
-
     type();
   });
 
-  /* ✅ Scroll-triggered animations for all sections */
+  /* ✅ Scroll-triggered animations */
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
@@ -38,47 +37,47 @@ document.addEventListener("DOMContentLoaded", () => {
     )
     .forEach((el) => observer.observe(el));
 
-
-    
-
   /* ✅ Gallery Slider */
-const galleryCards = document.querySelectorAll(".gallery-card");
-const prevBtn = document.querySelector(".gallery-prev");
-const nextBtn = document.querySelector(".gallery-next");
+  const galleryCards = document.querySelectorAll(".gallery-card");
+  const prevBtn = document.querySelector(".gallery-prev");
+  const nextBtn = document.querySelector(".gallery-next");
 
-let currentIndex = 0;
+  let currentIndex = 0;
 
-function updateGallery() {
-  galleryCards.forEach((card) => {
-    card.style.display = "none";
-    card.style.opacity = "0";
-    card.style.transform = "scale(0.8)";
-  });
+  function updateGallery() {
+    galleryCards.forEach((card) => {
+      card.style.display = "none";
+      card.style.opacity = "0";
+      card.style.transform = "scale(0.8)";
+    });
 
-  // ✅ Calculate indices safely
-  let indices = [currentIndex - 1, currentIndex, currentIndex + 1].filter(
-    (i) => i >= 0 && i < galleryCards.length
-  );
+    // ✅ Calculate indices safely
+    let indices = [currentIndex - 1, currentIndex, currentIndex + 1].filter(
+      (i) => i >= 0 && i < galleryCards.length
+    );
 
-  indices.forEach((i) => {
-    galleryCards[i].style.display = "block";
-    galleryCards[i].style.opacity = "1";
-    galleryCards[i].style.transform = i === currentIndex ? "scale(1)" : "scale(0.85)";
-  });
-}
+    indices.forEach((i) => {
+      galleryCards[i].style.display = "block";
+      galleryCards[i].style.opacity = "1";
+      galleryCards[i].style.transform =
+        i === currentIndex ? "scale(1)" : "scale(0.85)";
+    });
+  }
 
-prevBtn.addEventListener("click", () => {
-  currentIndex = Math.max(currentIndex - 1, 0);
-  updateGallery();
+  if (prevBtn && nextBtn) {
+    prevBtn.addEventListener("click", () => {
+      currentIndex = Math.max(currentIndex - 1, 0);
+      updateGallery();
+    });
+
+    nextBtn.addEventListener("click", () => {
+      currentIndex = Math.min(currentIndex + 1, galleryCards.length - 1);
+      updateGallery();
+    });
+  }
+
+  updateGallery(); // ✅ Initialize
 });
-
-nextBtn.addEventListener("click", () => {
-  currentIndex = Math.min(currentIndex + 1, galleryCards.length - 1);
-  updateGallery();
-});
-
-updateGallery(); // ✅ Initialize
-
 
 /* ✅ Parallax Effect */
 window.addEventListener("scroll", () => {
@@ -99,6 +98,8 @@ window.addEventListener("scroll", () => {
 const burger = document.querySelector(".burger");
 const navMenu = document.querySelector("nav ul");
 
-burger.addEventListener("click", () => {
-  navMenu.classList.toggle("show-menu");
-});
+if (burger) {
+  burger.addEventListener("click", () => {
+    navMenu.classList.toggle("show-menu");
+  });
+}

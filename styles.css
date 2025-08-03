@@ -299,14 +299,14 @@ nav a {
 /* Adjust font size on smaller screens */
 @media (max-width: 768px) {
   .intro-content p {
-    font-size: 2rem;
+    font-size: 1.8rem;
     max-width: 90%;
   }
 }
 
 @media (max-width: 480px) {
   .intro-content p {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     max-width: 95%;
   }
 }
@@ -492,7 +492,9 @@ nav a {
 .gallery-section h2 {
   text-align: center;
   margin-top: 40px;
-  margin-bottom: 20px;
+  margin: 20px;
+  padding-top: 60px;
+  border-top: 3px solid var(--border);
 }
 
 .gallery-card {
@@ -522,7 +524,7 @@ nav a {
 .gallery-next:hover {
   transform: scale(1.2);
   text-decoration: none;
-  color: var(--bg);
+  color: var(--fg);
 }
 
 .gallery-prev {
@@ -542,8 +544,8 @@ nav a {
 /* === TEAM SECTION === */
 .team-section {
   padding: 120px 40px;
-  border-bottom: 3px solid var(--border);
-  max-width: 1000px;
+  border-bottom: 0px solid var(--border);
+  max-width: 500px;
   margin: 0 auto;
 }
 
@@ -586,7 +588,7 @@ nav a {
   max-width: 100vw; /* no restriction */
   margin: 0;
   padding: 120px 40px;
-  border-bottom: 3px solid var(--bg);
+  border-bottom: 0px solid var(--bg);
   background: var(--fg); /* black */
   color: var(--bg); /* white */
 }
@@ -611,7 +613,7 @@ nav a {
   height: 160px;
   object-fit: cover;
   border-radius: 50%;
-  border: 3px solid var(--bg); /* white */
+  border: 0px solid var(--bg); /* white */
   box-shadow: 0 6px 0 var(--bg); /* white */
 }
 

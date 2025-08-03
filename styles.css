@@ -471,8 +471,8 @@ nav a {
 .gallery-card img {
   width: 500px;
   max-width: 80vw;
-  border: 3px solid var(--border);
-  box-shadow: 6px 6px 0 var(--border);
+  border: 4px solid var(--border);
+  box-shadow: 0 0 0 var(--border);
 }
 
 .gallery-prev,
@@ -534,8 +534,8 @@ nav a {
   height: 200px;
   object-fit: cover;
   border-radius: 0;
-  border: 3px solid var(--border);
-  box-shadow: 6px 6px 0 var(--border);
+  border: 4px solid var(--border);
+  box-shadow: 0 0 0 var(--border);
 }
 
 .award-info h3 {

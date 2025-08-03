@@ -581,12 +581,13 @@ nav a {
 
 /* === TEAM SECTION DARK THEME === */
 .team-section {
+  width: 100vw; 
+  max-width: 100vw; /* no restriction */
+  margin: 0;
   padding: 120px 40px;
-  border-bottom: 3px solid var(--bg); /* inverted border */
-  max-width: 1000px;
-  margin: 0 auto;
-  background: var(--fg); /* black background */
-  color: var(--bg);      /* white text */
+  border-bottom: 3px solid var(--bg);
+  background: var(--fg); /* black */
+  color: var(--bg); /* white */
 }
 
 .team-section h2 {
@@ -601,7 +602,7 @@ nav a {
   justify-content: center;
   gap: 30px;
   margin-bottom: 60px;
-  color: var(--bg); /* white text for names & roles */
+  color: var(--bg); /* white */
 }
 
 .team-member img {
@@ -609,16 +610,16 @@ nav a {
   height: 160px;
   object-fit: cover;
   border-radius: 50%;
-  border: 3px solid var(--bg); /* white border */
-  box-shadow: 6px 6px 0 var(--bg); /* white shadow */
+  border: 3px solid var(--bg); /* white */
+  box-shadow: 0 6px 0 var(--bg); /* white */
 }
 
 .team-info h3,
 .team-info p {
-  color: var(--bg); /* white text */
+  color: var(--bg); /* white */
 }
 
-/* Social icons inverted for dark background */
+/* Social icons */
 .team-section .social-icons a {
   color: var(--bg);
 }

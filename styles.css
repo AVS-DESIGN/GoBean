@@ -486,15 +486,15 @@ nav a {
   align-items: center;
   gap: 20px;
   overflow: hidden;
-  margin-top: 40px;
+  margin-top: 60px;
+  padding-bottom: 150px;
+  border-bottom: 3px solid var(--border);
 }
 
 .gallery-section h2 {
   text-align: center;
   margin-top: 40px;
-  margin: 20px;
   padding-top: 60px;
-  border-top: 3px solid var(--border);
 }
 
 .gallery-card {

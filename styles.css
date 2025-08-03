@@ -316,23 +316,13 @@ nav a {
 /* === STORY BLOCKS === */
 .story-block,
 .cta {
-  padding: 120px 30px;
   text-align: center;
-}
-
-.story-block h2 {
   max-width: 90%;
   margin: 0 auto 20px auto;
-  padding: 0 40px;
+  padding: 100px 20px;
   text-align: center;
-
-
-@media (max-width: 768px) {
-  .story-block h2 {
-    max-width: 95%;
-    padding: 0 20px;
-  }
 }
+
 
 /* === STORY IMAGE === */
 .story-img,

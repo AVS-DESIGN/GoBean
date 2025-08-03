@@ -617,13 +617,14 @@ nav a {
   object-fit: cover;
   border-radius: 50%;
   border: 0px solid var(--bg); /* white */
-  box-shadow: 0 6px 0 var(--bg); /* white */
+  box-shadow: 0 0 0 var(--bg); /* white */
 }
 
 .team-info h3,
 .team-info p {
   color: var(--bg); /* white */
 }
+
 
 /* Social icons */
 .team-section .social-icons a {

@@ -19,6 +19,8 @@ document.addEventListener("DOMContentLoaded", () => {
     type();
   });
 
+
+  
   /* ✅ Scroll-triggered animations */
   const observer = new IntersectionObserver(
     (entries) => {
@@ -36,6 +38,9 @@ document.addEventListener("DOMContentLoaded", () => {
       ".story-block, .cta, .team-section, .award-section, .gallery-section"
     )
     .forEach((el) => observer.observe(el));
+
+
+
 
   /* ✅ Gallery Slider */
   const galleryCards = document.querySelectorAll(".gallery-card");
@@ -79,6 +84,9 @@ document.addEventListener("DOMContentLoaded", () => {
   updateGallery(); // ✅ Initialize
 });
 
+
+
+
 /* ✅ Parallax Effect */
 window.addEventListener("scroll", () => {
   document.querySelectorAll(".parallax").forEach((img) => {
@@ -93,6 +101,9 @@ window.addEventListener("scroll", () => {
     }
   });
 });
+
+
+
 
 /* ✅ Burger Menu Toggle */
 const burger = document.querySelector(".burger");

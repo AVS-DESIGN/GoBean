@@ -489,6 +489,12 @@ nav a {
   margin-top: 40px;
 }
 
+.gallery-section h2 {
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+
 .gallery-card {
   display: none;
   transition: transform 0.4s ease, opacity 0.4s ease;
@@ -570,6 +576,64 @@ nav a {
   border: 3px solid var(--border);
   box-shadow: 6px 6px 0 var(--border);
 }
+
+
+
+/* === TEAM SECTION DARK THEME === */
+.team-section {
+  padding: 120px 40px;
+  border-bottom: 3px solid var(--bg); /* inverted border */
+  max-width: 1000px;
+  margin: 0 auto;
+  background: var(--fg); /* black background */
+  color: var(--bg);      /* white text */
+}
+
+.team-section h2 {
+  text-align: center;
+  margin-bottom: 50px;
+  color: var(--bg); /* white */
+}
+
+.team-member {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 60px;
+  color: var(--bg); /* white text for names & roles */
+}
+
+.team-member img {
+  width: 160px;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid var(--bg); /* white border */
+  box-shadow: 6px 6px 0 var(--bg); /* white shadow */
+}
+
+.team-info h3,
+.team-info p {
+  color: var(--bg); /* white text */
+}
+
+/* Social icons inverted for dark background */
+.team-section .social-icons a {
+  color: var(--bg);
+}
+
+.team-section .social-icons a:hover {
+  color: #0077b5;
+}
+
+.team-section .social-icons a:nth-child(2):hover {
+  color: #e1306c;
+}
+
+
+
+
 
 /* === SOCIAL ICONS === */
 .social-icons {

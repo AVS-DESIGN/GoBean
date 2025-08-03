@@ -480,7 +480,7 @@ nav a {
 .gallery-next {
   background: none;
   border: none;
-  font-size: 4rem; /* Big brutalist arrows */
+  font-size: 6rem; /* arrows */
   cursor: pointer;
   transition: transform 0.2s ease;
   color: var(--fg);

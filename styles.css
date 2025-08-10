@@ -233,17 +233,17 @@ nav a {
 }
 
 .typewriter {
-  display: block;                 /* ✅ full width */
-  max-width: 85%;                 /* ✅ no overflow */
-  margin: 0 auto;                 /* ✅ Center on screen */
+  display: block;                 /* full screen */
+  max-width: 85%;                 /* no overflow */
+  margin: 0 auto;                 /* Center screen */
   font-size: 4.5rem;
   font-family: var(--font-header);
   color: var(--bg);
   text-transform: none;
   border-right: 4px solid var(--fg);
   overflow: hidden;
-  white-space: normal;            /* ✅ wrapping */
-  word-break: break-word;         /* ✅ Break long words */
+  white-space: normal;            /* wrapping */
+  word-break: break-word;         /* Linebreak */
   text-align: center;
 }
 
@@ -284,14 +284,14 @@ nav a {
 }
 
 .intro-content p {
-  max-width: 90%;      /* ✅ Prevents overflow */
-  margin: 15px auto 0; /* ✅ Center it below */
-  text-align: center;  /* ✅ Center text */
+  max-width: 90%;      /* no overflow */
+  margin: 15px auto 0; /* Center below */
+  text-align: center;
   word-wrap: break-word;
   overflow-wrap: break-word;
 }
 
-/* Adjust font size on smaller screens */
+/* smaller screens */
 @media (max-width: 768px) {
   .intro-content p {
     font-size: 1.8rem;
@@ -323,7 +323,7 @@ nav a {
   margin-bottom: 20px;
 }
 
-/* ✅ Adjust for smaller screens */
+/* smaller screens */
 @media (max-width: 768px) {
   .story-block h2 {
     max-width: 90%;
@@ -545,7 +545,7 @@ nav a {
   font-size: 1.2rem;
 }
 
-/* Alternate layout for every second item */
+/* Alternate layout */
 .award-item:nth-child(even) {
   flex-direction: row-reverse;
   text-align: right;

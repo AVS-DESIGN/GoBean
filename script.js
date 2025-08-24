@@ -13,14 +13,12 @@ document.addEventListener("DOMContentLoaded", () => {
         i++;
         setTimeout(type, 120);
       } else {
-        el.style.width = "auto";
+        el.style.width = "auto"; // allow wrapping after typing
       }
     }
     type();
   });
 
-
-  
   /* ✅ Scroll-triggered animations */
   const observer = new IntersectionObserver(
     (entries) => {
@@ -34,58 +32,88 @@ document.addEventListener("DOMContentLoaded", () => {
   );
 
   document
-    .querySelectorAll(
-      ".story-block, .cta, .team-section, .award-section, .gallery-section"
-    )
+    .querySelectorAll(".story-block, .cta, .team-section, .award-section, .gallery-section")
     .forEach((el) => observer.observe(el));
 
+  /* ✅ Gallery Slider (3‑card stack, safe + delegated clicks) */
+(function initGallery() {
+  const slider = document.querySelector(".gallery-slider");
+  if (!slider) return;
 
-
-
-  /* ✅ Gallery Slider */
-  const galleryCards = document.querySelectorAll(".gallery-card");
-  const prevBtn = document.querySelector(".gallery-prev");
-  const nextBtn = document.querySelector(".gallery-next");
+  const cards = slider.querySelectorAll(".gallery-card");
+  if (!cards.length) return;
 
   let currentIndex = 0;
+  const total = cards.length;
+  const LOOP = true;
+  const mod = (n, m) => ((n % m) + m) % m;
 
-  function updateGallery() {
-    galleryCards.forEach((card) => {
-      card.style.display = "none";
-      card.style.opacity = "0";
-      card.style.transform = "scale(0.8)";
-    });
-
-    // ✅ Calculate indices safely
-    let indices = [currentIndex - 1, currentIndex, currentIndex + 1].filter(
-      (i) => i >= 0 && i < galleryCards.length
-    );
-
-    indices.forEach((i) => {
-      galleryCards[i].style.display = "block";
-      galleryCards[i].style.opacity = "1";
-      galleryCards[i].style.transform =
-        i === currentIndex ? "scale(1)" : "scale(0.85)";
-    });
+  function render() {
+    cards.forEach((c) => c.className = "gallery-card"); // reset classes
+    if (LOOP) {
+      const prev = mod(currentIndex - 1, total);
+      const next = mod(currentIndex + 1, total);
+      cards[prev].classList.add("prev");
+      cards[currentIndex].classList.add("active");
+      cards[next].classList.add("next");
+    } else {
+      if (currentIndex > 0) cards[currentIndex - 1].classList.add("prev");
+      cards[currentIndex].classList.add("active");
+      if (currentIndex < total - 1) cards[currentIndex + 1].classList.add("next");
+    }
   }
 
-  if (prevBtn && nextBtn) {
-    prevBtn.addEventListener("click", () => {
-      currentIndex = Math.max(currentIndex - 1, 0);
-      updateGallery();
-    });
+  // 🔁 Event delegation: works even if markup shifts
+  document.addEventListener("click", (e) => {
+    if (e.target.closest(".gallery-prev")) {
+      currentIndex = LOOP ? mod(currentIndex - 1, total) : Math.max(0, currentIndex - 1);
+      render();
+    } else if (e.target.closest(".gallery-next")) {
+      currentIndex = LOOP ? mod(currentIndex + 1, total) : Math.min(total - 1, currentIndex + 1);
+      render();
+    }
+  });
 
-    nextBtn.addEventListener("click", () => {
-      currentIndex = Math.min(currentIndex + 1, galleryCards.length - 1);
-      updateGallery();
-    });
+  render();
+
+  /* ✅ Lightbox */
+  let lb = document.getElementById("lightbox");
+  if (!lb) {
+    lb = document.createElement("div");
+    lb.id = "lightbox";
+    lb.className = "lightbox";
+    lb.setAttribute("aria-hidden", "true");
+    lb.innerHTML = `
+      <button class="lightbox-close" aria-label="Close">×</button>
+      <img class="lightbox-img" alt="">
+    `;
+    document.body.appendChild(lb);
+  }
+  const lbImg = lb.querySelector(".lightbox-img");
+  const lbClose = lb.querySelector(".lightbox-close");
+
+  function openLightbox(src) {
+    lbImg.src = src;
+    lb.classList.add("show");
+    document.body.classList.add("no-scroll");
+    lb.setAttribute("aria-hidden", "false");
+  }
+  function closeLightbox() {
+    lb.classList.remove("show");
+    document.body.classList.remove("no-scroll");
+    lb.setAttribute("aria-hidden", "true");
   }
 
-  updateGallery(); // ✅ Initialize
+  slider.querySelectorAll(".gallery-card img").forEach((img) => {
+    img.addEventListener("click", () => openLightbox(img.src));
+  });
+  lbClose?.addEventListener("click", closeLightbox);
+  lb.addEventListener("click", (e) => { if (e.target === lb) closeLightbox(); });
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && lb.classList.contains("show")) closeLightbox();
+  });
+})();
 });
-
-
-
 
 /* ✅ Parallax Effect */
 window.addEventListener("scroll", () => {
@@ -101,9 +129,6 @@ window.addEventListener("scroll", () => {
     }
   });
 });
-
-
-
 
 /* ✅ Burger Menu Toggle */
 const burger = document.querySelector(".burger");

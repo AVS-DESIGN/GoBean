@@ -15,6 +15,7 @@
   --border: #000;
   --font-header: 'HeaderFont', Arial Black, sans-serif;
   --font-body: 'BodyFont', Arial, Helvetica, sans-serif;
+  --header-h: 76px;
 }
 
 * {
@@ -72,18 +73,26 @@ p {
 }
 
 /* === HEADER === */
-header {
+header{
+  position: fixed;        /* ← was sticky */
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  height: var(--header-h);
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 20px 40px;
-  border-bottom: 3px solid var(--border);
-  position: sticky;
-  top: 0;
   background: var(--bg);
-  z-index: 10;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  border-bottom: 3px solid var(--border);
+  transition: box-shadow .2s ease, background-color .2s ease, color .2s ease;
 }
+
+/* scroll shadow */
+header.is-stuck{ box-shadow: 0 6px 0 var(--border); }
+
+body{ padding-top: var(--header-h); }
 
 header:hover {
   background: var(--fg);

@@ -139,3 +139,20 @@ if (burger) {
     navMenu.classList.toggle("show-menu");
   });
 }
+
+// header scroll
+(function(){
+  const hdr = document.querySelector('header');
+  if(!hdr) return;
+  const apply = () => {
+    const h = hdr.getBoundingClientRect().height;
+    document.documentElement.style.setProperty('--header-h', `${h}px`);
+    document.body.style.paddingTop = `var(--header-h)`;
+    // shadow when scrolled
+    if (window.scrollY > 4) hdr.classList.add('is-stuck');
+    else hdr.classList.remove('is-stuck');
+  };
+  apply();
+  window.addEventListener('resize', apply, {passive:true});
+  window.addEventListener('scroll', apply, {passive:true});
+})();

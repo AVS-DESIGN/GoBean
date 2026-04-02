@@ -377,11 +377,10 @@ body.no-scroll{overflow:hidden}
 .team-member:nth-child(even) .social-icons{justify-content:flex-end}
 .team-member img{
   width:180px;height:180px;object-fit:cover;border-radius:50%;
-  border:2px solid var(--sand);flex-shrink:0;
 }
 .team-info h3{
   font-family:var(--font-head);
-  font-size:1.3rem;font-weight:700;color:var(--sand);margin-bottom:.3rem;
+  font-size:1.3rem;font-weight:700;color:var(--terra);margin-bottom:.3rem;
 }
 .team-info p{font-size:.85rem;font-weight:400;color:var(--stone)}
 .social-icons{display:flex;gap:.9rem;margin-top:.7rem}
@@ -513,7 +512,7 @@ footer{
   100%{transform:translateX(-33.333%)}
 }
 
-/* ── OPTION C ── */
+/* ── TWO ROWS TEXT ── */
 .optionc-section{
   background:var(--sand);
   padding:7rem 4rem;

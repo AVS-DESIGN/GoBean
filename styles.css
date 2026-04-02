@@ -196,7 +196,7 @@ header:hover .nav-link::after{background:var(--sand)}
 
 /* ── SLOGAN BANNER ── */
 .slogan-banner{
-  position:relative;min-height:50vh;
+  position:relative;min-height:60vh;
   display:flex;align-items:center;justify-content:center;
   overflow:hidden;text-align:center;padding:4rem 2rem;
 }

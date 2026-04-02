@@ -569,3 +569,50 @@ footer{
   .optionc-left{padding-bottom:2rem;border-bottom:1px solid rgba(28,10,3,.15)}
   .optionc-section{padding:5rem 2rem}
 }
+
+/* ── Q&A DOWNLOAD ── */
+.qa-section{
+  background:var(--esp);
+  padding:7rem 3rem;
+  text-align:center;
+}
+.qa-inner{
+  max-width:700px;
+  margin:0 auto;
+}
+.qa-title{
+  font-family:var(--font-head);
+  font-size:clamp(4rem,12vw,9rem);
+  font-weight:700;
+  color:var(--coffee);
+  letter-spacing:-.03em;
+  line-height:1;
+  margin-bottom:1.5rem;
+}
+.qa-desc{
+  font-family:var(--font-body);
+  font-size:1rem;
+  font-weight:400;
+  color:var(--coffee);
+  line-height:1.8;
+  max-width:480px;
+  margin:0 auto 2.5rem;
+}
+.qa-btn{
+  display:inline-block;
+  font-family:var(--font-head);
+  font-size:.78rem;
+  font-weight:700;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:var(--coffee);
+  background:var(--terra);
+  padding:.9rem 2.2rem;
+  text-decoration:none;
+  transition:background .2s,transform .15s;
+}
+.qa-btn:hover{
+  background:var(--coffee);
+  transform:translateY(-2px);
+  color:var(--sand);
+}

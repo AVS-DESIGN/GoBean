@@ -154,11 +154,17 @@ header:hover .nav-link::after{background:var(--sand)}
 }
 @keyframes bounce{0%{transform:translateY(0)}100%{transform:translateY(10px)}}
 
-/* ── SPLIT MOMENTS ── */
+/* ── STORYTELLING ── */
 .moment-split{display:grid;grid-template-columns:1fr 1fr;min-height:85vh}
 .moment-split.flip{direction:rtl}
 .moment-split.flip>*{direction:ltr}
-.split-img{background-size:cover;background-position:center}
+
+
+.split-img {
+  background-size: cover;
+  background-position: center;
+}
+
 .split-cap{
   display:flex;flex-direction:column;justify-content:center;
   padding:5rem 4.5rem;background:var(--sand);
@@ -187,19 +193,56 @@ header:hover .nav-link::after{background:var(--sand)}
 
 /* ── SLOGAN BANNER ── */
 .slogan-banner{
-  position:relative;min-height:70vh;
+  position:relative;min-height:50vh;
   display:flex;align-items:center;justify-content:center;
   overflow:hidden;text-align:center;padding:4rem 2rem;
 }
 .slogan-banner .sb-bg{
   position:absolute;inset:0;
-  background:url('./gallery/GoBean-20.jpeg') center/cover no-repeat;
+  background:url('./gallery/GoBean-3.jpeg') center/cover no-repeat;
 }
 .slogan-banner .sb-bg::after{
   content:'';position:absolute;inset:0;background:rgba(28,10,3,.55)
 }
 .sb-text{position:relative;z-index:1}
 
+/* ── SLOGAN TICKER ── */
+.slogan-ticker{
+  overflow:hidden;
+  width:100vw;
+  position:relative;
+}
+.slogan-ticker-inner{
+  display:flex;
+  white-space:nowrap;
+  animation:slogan-scroll 15s linear infinite;
+  will-change:transform;
+}
+.slogan-banner:hover .slogan-ticker-inner{
+  animation-play-state:paused;
+}
+.slogan-ticker-item{
+  font-family:var(--font-head);
+  font-size:clamp(2.8rem,7vw,5.5rem);
+  font-weight:700;
+  color:var(--sand);
+  letter-spacing:-.02em;
+  padding:0 1rem;
+  flex-shrink:0;
+}
+.slogan-ticker-sep{
+  font-family:var(--font-head);
+  font-size:clamp(2.8rem,7vw,5.5rem);
+  font-weight:700;
+  color:var(--terra);
+  padding:0 1.5rem;
+  flex-shrink:0;
+  align-self:center;
+}
+@keyframes slogan-scroll{
+  0%{transform:translateX(0)}
+  100%{transform:translateX(-33.333%)}
+}
 
 /* ── GALLERY ── */
 .gallery-section{padding:6rem 0 4rem;background:var(--sand)}
@@ -472,44 +515,6 @@ footer{
   }
   .factstrip-divider{display:none}
   .factstrip{padding:4rem 2rem}
-}
-
-/* ── SLOGAN TICKER ── */
-.slogan-ticker{
-  overflow:hidden;
-  width:100vw;
-  position:relative;
-}
-.slogan-ticker-inner{
-  display:flex;
-  white-space:nowrap;
-  animation:slogan-scroll 18s linear infinite;
-  will-change:transform;
-}
-.slogan-banner:hover .slogan-ticker-inner{
-  animation-play-state:paused;
-}
-.slogan-ticker-item{
-  font-family:var(--font-head);
-  font-size:clamp(2.8rem,7vw,5.5rem);
-  font-weight:700;
-  color:var(--sand);
-  letter-spacing:-.02em;
-  padding:0 1rem;
-  flex-shrink:0;
-}
-.slogan-ticker-sep{
-  font-family:var(--font-head);
-  font-size:clamp(2.8rem,7vw,5.5rem);
-  font-weight:700;
-  color:var(--terra);
-  padding:0 1.5rem;
-  flex-shrink:0;
-  align-self:center;
-}
-@keyframes slogan-scroll{
-  0%{transform:translateX(0)}
-  100%{transform:translateX(-33.333%)}
 }
 
 /* ── TWO ROWS TEXT ── */

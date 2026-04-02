@@ -15,13 +15,13 @@
 /* ── RESET & ROOT ── */
 *{margin:0;padding:0;box-sizing:border-box}
 :root{
-  --coffee:#260d04;
+  --coffee:#311107;
   --stone:#C8BFA8;
   --sand:#F6F1E8;
   --terra:#E8553A;
   --moss:#939e83;
   --hdr:72px;
-  --font-head:'Satoshi',Arial Black,sans-serif;
+  --font-head:'Satoshi',Arial #311106,sans-serif;
   --font-body:'Satoshi',Arial,sans-serif;
 }
 html{scroll-behavior:smooth;overflow-x:hidden}

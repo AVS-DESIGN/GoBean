@@ -297,7 +297,7 @@ body.no-scroll{overflow:hidden}
 
 /* ── AWARD ── */
 .award-section{
-  background:var(--moss);
+  background:var(--sand);
   padding:7rem 0;
   margin:0 calc(50% - 50vw);
 }
@@ -323,8 +323,6 @@ body.no-scroll{overflow:hidden}
 }
 .award-item img{
   width:100%;height:auto;object-fit:cover;
-  background:var(--sand);
-  border:2px solid var(--coffee);box-shadow:5px 5px 0 var(--coffee);
 }
 .award-item-placeholder{
   width:100%;aspect-ratio:4/3;

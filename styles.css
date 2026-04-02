@@ -616,3 +616,57 @@ footer{
   transform:translateY(-2px);
   color:var(--sand);
 }
+
+/* ── CONTACT ── */
+.contact-section{
+  background:var(--terra);
+  padding:4rem 3rem;
+  text-align:center;
+}
+.contact-inner{
+  max-width:700px;
+  margin:0 auto;
+}
+.contact-label{
+  font-family:var(--font-head);
+  font-size:.68rem;
+  font-weight:700;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:rgba(246,241,232,.6);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:.5rem;
+  margin-bottom:1.2rem;
+}
+.contact-label::before{
+  content:'';
+  width:16px;
+  height:1.5px;
+  background:rgba(246,241,232,.6);
+}
+.contact-title{
+  font-family:var(--font-head);
+  font-size:clamp(3rem,8vw,6rem);
+  font-weight:700;
+  color:var(--cream);
+  letter-spacing:-.03em;
+  line-height:1;
+  margin-bottom:2rem;
+}
+.contact-email{
+  font-family:var(--font-head);
+  font-size:clamp(1.2rem,3vw,2rem);
+  font-weight:700;
+  color:var(--cream);
+  text-decoration:none;
+  letter-spacing:-.01em;
+  border-bottom:2px solid rgba(246,241,232,.4);
+  padding-bottom:.2rem;
+  transition:border-color .2s,color .2s;
+}
+.contact-email:hover{
+  border-color:var(--cream);
+  color:var(--esp);
+}

@@ -127,25 +127,20 @@ header:hover .nav-link::after{background:var(--sand)}
 .hero-scroll::after{content:'↓'}
 
 /* ── STORYTELLING ── */
-.story-block{padding:6rem 0;text-align:center}
+.story-block{padding:4rem 0;text-align:center}
 .story-block h2{
   font-family:var(--font-head);
   font-size:clamp(1.8rem,4vw,3rem);font-weight:700;
   color:var(--coffee);line-height:1.2;letter-spacing:-.01em;
-  max-width:700px;margin:0 auto 2.5rem;padding:0 2rem;
+  max-width:700px;margin:0 auto 1rem;padding:0 5rem;
 }
-.story-img{max-width:620px;width:90%;margin:0 auto;display:block;will-change:transform}
-.story-img-left{max-width:620px;width:90%;margin-right:auto;display:block;will-change:transform}
+.story-img{width:auto; max-height:450px; margin:0 auto;display:block;will-change:transform}
+.story-img-left{width:auto; height:100%; max-height:500px; margin-right:auto;display:block;will-change:transform}
+
 .story-block p{
   font-family:var(--font-head);
   font-size:1.3rem;font-weight:400;line-height:1.7;color:var(--coffee);
-  max-width:600px;margin:3.5rem auto 0;padding:0 2rem;
-}
-.caption{
-  font-family:var(--font-body);
-  font-size:1.25rem;font-weight:400;line-height:1.8;color:var(--terra);
-  max-width:520px;margin:1.2rem auto 0;padding:0 2rem;text-align:center;
-  font-style:italic;
+  max-width:600px;margin:3rem auto 0;padding:0 1rem;
 }
 
 .scroll-arrow{display:flex;justify-content:center;padding:.5rem 0}

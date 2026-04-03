@@ -57,6 +57,19 @@
     });
   }, {passive:true});
 
+/* ── IMMERSIVE STORY ANIMATIONS ── */
+const immObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('in');
+    } else {
+      e.target.classList.remove('in');
+    }
+  });
+}, { threshold: 0.25 });
+
+document.querySelectorAll('.immersive-h2, .immersive-p').forEach(el => immObs.observe(el));
+
   /* ── GALLERY (scrolling track + arrows + dots + swipe) ── */
   (function initGallery() {
     const track   = document.getElementById('gallery-track');

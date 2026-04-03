@@ -46,6 +46,8 @@
   <button class="burger" aria-label="Open menu" aria-expanded="false">☰</button>
 </header>
 
+
+
 <!-- HERO -->
 <section class="hero">
   <div class="hero-bg"></div>
@@ -56,38 +58,41 @@
   </div>
 </section>
 
-<!-- STORY TELLING-->
-<main id="story">
-
-  <section class="story-block hidden">
-    <h2>Germany alone discards billions of to-go cups per year...</h2>
-    <img class="story-img parallax" src="./gallery/GoBean_To-go-cup.png" alt="Disposable hot drink cups"/>
-    <p>Around 5,300 disposable hot drink cups are used in Germany every minute. This equates to 2.8 billion cups of waste per year.</p>
-  </section>
-
-  <div class="scroll-arrow"><span>↓</span></div>
-
-  <section class="story-block hidden">
-    <h2></h2>
-    <img class="story-img parallax" src="./gallery/GoBean_CoffeGrounds.png" alt="Leftover Coffee Grounds"/>
-    <h2>Every coffee-to-go produces around 11 grams of coffee grounds  </h2>
-    <p>Multiplied by 2.8 billion cups a year, that's over 30,000 tonnes of coffee-grounds discarded annually.</p>
-  </section>
-
-  <div class="scroll-arrow"><span>↓</span></div>
 
 
-  <section class="moment-split hidden">
-    <div class="split-img" style="background-image:url('./gallery/GoBean-19.png');background-position:left; background-size:contain; background-repeat: no-repeat; max-height: 95vh;" "></div>
-    <div class="split-cap" style="background:var(--sand)">
-      <h2> GoBean uses this waste to make something new...</h2>
-      <p>Not another reusable cup — but the little ring around your hot drink that keeps your fingers from burning: The cup-sleeve!</p>
-    </div>
-  </section>
+<!-- STORY BLOCK 1 -->
+<section class="story-immersive">
+  <h2 class="immersive-h2">Germany alone discards billions of to-go cups per year...</h2>
+  <div class="immersive-row" style="justify-content:center;">
+    <img class="immersive-img parallax" src="./gallery/GoBean_To-go-cup.png" alt="Disposable hot drink cups" style="margin:0;"/>
+    <p class="immersive-p" style="text-align:left;">Around 5,300 disposable hot drink cups are used in Germany every minute. This equates to 2.8 billion cups of waste per year.</p>
+  </div>
+</section>
+
+<div class="scroll-arrow"><span>↓</span></div>
+
+<!-- STORY BLOCK 2 -->
+<section class="story-immersive">
+  <h2 class="immersive-h2">Every coffee-to-go produces around 11 grams of coffee grounds</h2>
+  <img class="immersive-img immersive-img--landscape parallax" src="./gallery/GoBean_CoffeGrounds.png" alt="Leftover Coffee Grounds"/>
+  <p class="immersive-p immersive-p--below">Multiplied by 2.8 billion cups a year, that's over 30,000 tonnes of coffee-grounds discarded annually.</p>
+</section>
+
+<div class="scroll-arrow"><span>↓</span></div>
+
+<!-- STORY BLOCK 3 -->
+<section class="story-immersive story-immersive--edge">
+  <h2 class="immersive-h2">GoBean uses this waste to make something new...</h2>
+  <div class="immersive-row">
+    <img class="immersive-img parallax" src="./gallery/GoBean-19.png" alt="GoBean Bean Sleeve" style="margin-left:0;margin-right:0;"/>
+    <p class="immersive-p" style="text-align:left;">Not another reusable cup — but the little ring around your hot drink that keeps your fingers from burning: The cup-sleeve!</p>
+  </div>
+</section>
 
 
 
-    <div class="factstrip hidden">
+<!-- FACTS -->
+<div class="factstrip hidden">
   <div class="factstrip-grid">
     <div class="factstrip-item">
       <span class="factstrip-num">2.8 Billion</span>

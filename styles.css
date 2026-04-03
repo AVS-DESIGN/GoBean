@@ -416,42 +416,41 @@ header:hover .nav-link::after{background:var(--sand)}
 }
 .sb-text{position:relative;z-index:1}
 
+
 /* ── SLOGAN TICKER ── */
-.slogan-ticker{
-  overflow:hidden;
-  width:100vw;
-  position:relative;
+.slogan-ticker {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
 }
-.slogan-ticker-inner{
-  display:flex;
-  white-space:nowrap;
-  animation:slogan-scroll 15s linear infinite;
-  will-change:transform;
+
+.slogan-ticker-inner {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  will-change: transform;
 }
-.slogan-banner:hover .slogan-ticker-inner{
-  animation-play-state:paused;
+
+.slogan-ticker-item {
+  font-family: var(--font-head);
+  font-size: clamp(2.8rem, 7vw, 5.5rem);
+  font-weight: 700;
+  color: var(--sand);
+  letter-spacing: -.02em;
+  padding: 0 1rem;
+  flex-shrink: 0;
+  white-space: nowrap;
 }
-.slogan-ticker-item{
-  font-family:var(--font-head);
-  font-size:clamp(2.8rem,7vw,5.5rem);
-  font-weight:700;
-  color:var(--sand);
-  letter-spacing:-.02em;
-  padding:0 1rem;
-  flex-shrink:0;
-}
-.slogan-ticker-sep{
-  font-family:var(--font-head);
-  font-size:clamp(2.8rem,7vw,5.5rem);
-  font-weight:700;
-  color:var(--terra);
-  padding:0 1.5rem;
-  flex-shrink:0;
-  align-self:center;
-}
-@keyframes slogan-scroll{
-  0%{transform:translateX(0)}
-  100%{transform:translateX(-33.333%)}
+
+.slogan-ticker-sep {
+  font-family: var(--font-head);
+  font-size: clamp(2.8rem, 7vw, 5.5rem);
+  font-weight: 700;
+  color: var(--terra);
+  padding: 0 1.5rem;
+  flex-shrink: 0;
+  white-space: nowrap;
+  align-self: center;
 }
 
 

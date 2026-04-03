@@ -70,6 +70,26 @@ const immObs = new IntersectionObserver(entries => {
 
 document.querySelectorAll('.immersive-h2, .immersive-p').forEach(el => immObs.observe(el));
 
+/* ── TICKER ── */
+const tickerInner = document.querySelector('.slogan-ticker-inner');
+if (tickerInner) {
+  const original = tickerInner.innerHTML;
+  tickerInner.innerHTML = original + original + original + original;
+
+  let pos = 0;
+  const speed = 1;
+
+  function animateTicker() {
+    pos -= speed;
+    const quarter = tickerInner.scrollWidth / 4;
+    if (Math.abs(pos) >= quarter) pos = 0;
+    tickerInner.style.transform = `translateX(${pos}px)`;
+    requestAnimationFrame(animateTicker);
+  }
+
+  animateTicker();
+}
+
   /* ── GALLERY (scrolling track + arrows + dots + swipe) ── */
   (function initGallery() {
     const track   = document.getElementById('gallery-track');

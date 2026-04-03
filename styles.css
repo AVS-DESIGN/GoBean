@@ -287,12 +287,72 @@ header:hover .nav-link::after{background:var(--sand)}
 
 .scroll-arrow{display:flex;justify-content:center;padding:.5rem 0}
 .scroll-arrow span{
-  font-size:4rem;font-weight:700;line-height:1;color:var(--terra);
+  font-size:6rem;font-weight:700;line-height:1;color:var(--terra);
   animation:bounce 1.2s ease-in-out infinite alternate;display:inline-block;
 }
 @keyframes bounce{0%{transform:translateY(0)}100%{transform:translateY(10px)}}
 
 
+
+/* ── STORY HERO BLOCK ── */
+.story-hero {
+  position: relative;
+  min-height: 90vh;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+}
+
+.story-hero-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+}
+
+.story-hero-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(49,17,7,.88) 0%, rgba(49,17,7,.3) 55%, transparent 100%);
+}
+
+.story-hero-inner {
+  position: relative;
+  z-index: 1;
+  padding: 0 4rem 5rem;
+  max-width: 700px;
+}
+
+.story-hero-inner .cap-label {
+  color: var(--terra);
+  margin-bottom: 1rem;
+}
+
+.story-hero-inner h2 {
+  font-family: var(--font-head);
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  font-weight: 700;
+  color: var(--sand);
+  line-height: 1.1;
+  letter-spacing: -.02em;
+  margin-bottom: 1.2rem;
+}
+
+.story-hero-inner p {
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  font-weight: 400;
+  line-height: 1.8;
+  color: rgba(246,241,232,.75);
+  max-width: 480px;
+}
+
+@media (max-width: 768px) {
+  .story-hero-inner {
+    padding: 0 2rem 3rem;
+  }
+}
 
 
 

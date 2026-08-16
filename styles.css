@@ -601,6 +601,31 @@ body.no-scroll{overflow:hidden}
   .award-item{grid-template-columns:1fr;gap:1.5rem}
   .award-list{padding:0 2rem}
 }
+.award-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  margin-top: .5rem;
+}
+.award-link h3 {
+  display: inline;
+  position: relative;
+}
+.award-link h3::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 0;
+  height: 2px;
+  background: var(--terra);
+  transition: width .2s;
+}
+.award-link:hover h3::after {
+  width: 100%;
+}
+
+
 
 
 /* ── TEAM ── */
